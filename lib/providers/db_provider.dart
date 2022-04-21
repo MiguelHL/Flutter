@@ -85,7 +85,7 @@ class DBProvider{
       return res.isNotEmpty? res.map((e) => ScanModel.fromJson(e)).toList(): [];
    }
 
-    Future<List<ScanModel>> getScansForType(int tipo)async{
+    Future<List<ScanModel>> getScansForType(String tipo)async{
 
      final db = await database;
      final res= await db.rawQuery('''
@@ -106,6 +106,8 @@ class DBProvider{
     Future<int> deleteScan(int id)async{
       final db = await database;
       final res= await db.delete('SCANS',where: 'id=?',whereArgs: [id]);
+      // ignore: avoid_print
+      print('se borro la tupla');
       return res;
     }
 
