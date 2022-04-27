@@ -29,7 +29,7 @@ class DBProvider{
 
       return await openDatabase(
         path,
-        version: 1,
+        version: 2,
         onOpen: (db){
 
         },
